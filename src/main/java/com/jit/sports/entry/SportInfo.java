@@ -1,6 +1,6 @@
 package com.jit.sports.entry;
 
-public class sportInfo {
+public class SportInfo {
     private String tag;
     private String userName;
     private String startTime;

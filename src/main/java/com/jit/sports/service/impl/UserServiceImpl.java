@@ -1,6 +1,7 @@
 package com.jit.sports.service.impl;
 
 import com.jit.sports.Dao.UserDao;
+import com.jit.sports.entry.SportInfo;
 import com.jit.sports.entry.UserInfo;
 import com.jit.sports.service.UserService;
 import org.springframework.stereotype.Service;
@@ -34,5 +35,10 @@ public class UserServiceImpl implements UserService {
                             double maxElevation, double minElevation) {
         userDao.insertSport(tag, userName, startTime, overTime, totalDistance, totalUp, totalDown, averageSpeed,
                 maxSpeed, maxElevation, minElevation);
+    }
+
+    @Override
+    public SportInfo[] selectSportByName(String userName) {
+        return userDao.selectSportByName(userName);
     }
 }

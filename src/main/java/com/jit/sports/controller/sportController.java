@@ -1,6 +1,8 @@
 package com.jit.sports.controller;
 
-import com.jit.sports.entry.sportInfo;
+import com.jit.sports.InfluxDB.InfluxDealData;
+import com.jit.sports.entry.SportDetailInfo;
+import com.jit.sports.entry.SportInfo;
 import com.jit.sports.service.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 @RequestMapping("/sport")
@@ -35,16 +38,14 @@ public class sportController {
 
     //查看所有运动
     @RequestMapping("/mySports")
-    public sportInfo[] mySports(@RequestParam (value = "userName")String userName) {
-
-        return null;
+    public SportInfo[] mySports(@RequestParam (value = "userName")String userName) {
+        return userService.selectSportByName(userName);
     }
 
     //查看运动详情
     @RequestMapping("/detail")
-    public void detail(@RequestParam (value = "tag")String tag) {
-
-
+    public ArrayList<SportDetailInfo> detail(@RequestParam (value = "tag")String tag) {
+        return InfluxDealData.getSportDetailByTag(tag);
     }
 
 

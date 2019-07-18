@@ -24,4 +24,8 @@
         #{maxSpeed},#{maxElevation},#{minElevation})
     </insert>
 
+    <select id="selectSportByName" resultType="com.jit.sports.entry.SportInfo">
+        select * from sportInfo where userName = #{userName}
+    </select>
+
 </mapper>

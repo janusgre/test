@@ -2,6 +2,7 @@ package com.jit.sports.controller;
 
 import com.jit.sports.entry.UserInfo;
 import com.jit.sports.service.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,10 +16,14 @@ public class userController {
     @Resource
     UserService userService;
 
+    @Value("${mqtt.host}")
+    private String HOST;
+
     //用户登录
     @RequestMapping("/login")
     public int login(@RequestParam(value = "userName") String userName,
                        @RequestParam(value = "password") String password) {
+        System.out.println(HOST);
         if(userService.login(userName, password) == null) {
             return 0;
         }
