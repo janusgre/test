@@ -1,0 +1,22 @@
+package com.jit.sports.Dao;
+
+import com.jit.sports.entry.UserInfo;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface UserDao {
+
+    UserInfo login(String userName, String password);
+    String existUserName(String userName);
+    void reg(String userName, String password);
+
+    //插入一次运动
+    void insertSport(String tag, String userName, String startTime, String overTime,
+                     double totalDistance, double totalUp, double totalDown,double averageSpeed,
+                     double maxSpeed, double maxElevation, double minElevation);
+
+    //根据用户查找所有运动
+
+    //根据用户查找固定时间段的运动
+
+}
