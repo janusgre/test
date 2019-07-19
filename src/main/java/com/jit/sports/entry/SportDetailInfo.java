@@ -2,7 +2,6 @@ package com.jit.sports.entry;
 
 public class SportDetailInfo {
     private String time;
-    private String tag;
     private double longitude;
     private double latitude;
     private double elevation;
@@ -13,6 +12,7 @@ public class SportDetailInfo {
     private double accelerated_x;
     private double accelerated_y;
     private double accelerated_z;
+    private int steps;
 
     public String getTime() {
         return time;
@@ -20,14 +20,6 @@ public class SportDetailInfo {
 
     public void setTime(String time) {
         this.time = time;
-    }
-
-    public String getTag() {
-        return tag;
-    }
-
-    public void setTag(String tag) {
-        this.tag = tag;
     }
 
     public double getLongitude() {
@@ -117,6 +109,4 @@ public class SportDetailInfo {
     public void setSteps(int steps) {
         this.steps = steps;
     }
-
-    private int steps;
 }

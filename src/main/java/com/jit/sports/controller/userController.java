@@ -16,14 +16,11 @@ public class userController {
     @Resource
     UserService userService;
 
-    @Value("${mqtt.host}")
-    private String HOST;
 
     //用户登录
     @RequestMapping("/login")
     public int login(@RequestParam(value = "userName") String userName,
                        @RequestParam(value = "password") String password) {
-        System.out.println(HOST);
         if(userService.login(userName, password) == null) {
             return 0;
         }
